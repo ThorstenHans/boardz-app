@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import HostType = Office.HostType;
 
 declare let window;
 
@@ -31,11 +30,11 @@ export class RuntimeService {
     }
 
     public get isExcelApp(): boolean {
-        return Office.context.host === HostType.Excel;
+        return this.isOfficeApp && Office.context.host === 1;
     }
 
     public get isOutlookApp(): boolean {
-        return Office.context.host === HostType.Outlook;
+        return this.isOfficeApp && Office.context.host === 3;
     }
 
     private guessPlatform(): void {

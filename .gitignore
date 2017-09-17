@@ -265,3 +265,4 @@ out
 /src/boardz-spa/electron/index.js
 .tmp-cdv
 docker.env
+**/.vscode/

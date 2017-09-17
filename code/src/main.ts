@@ -17,4 +17,6 @@ if (window.hasOwnProperty('cordova')) {
 
 } else if (location.search.indexOf('?_host_Info') > -1) {
     Office.initialize = bootstrapNgApp;
+}else{
+    bootstrapNgApp();
 }
