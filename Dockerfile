@@ -1,14 +1,15 @@
 FROM node AS build-env
+LABEL maintainer="Thorsten Hans <thorsten.hans@thinktecture.com>"
 WORKDIR /app
 RUN mkdir /dist
-COPY ./package.json ./package-lock.json ./
+COPY ./code/package.json ./code/package-lock.json ./
 RUN npm i
-COPY ./*.* ./ 
-ADD src /app/src
+COPY ./code/*.* ./ 
+ADD code/src /app/src
 RUN npm run build
 
 FROM nginx:1.13.3-alpine
-COPY nginx.conf /etc/nginx/conf.d/
+COPY ./code/nginx.conf /etc/nginx/conf.d/
 
 RUN rm -rf /usr/share/nginx/html/*
 
