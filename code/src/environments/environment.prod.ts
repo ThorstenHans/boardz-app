@@ -1,13 +1,13 @@
 export const environment = {
     production: true,
     authN: {
-        url: 'http://10.211.55.2:8001/',
+        url: 'http://boardz-id.azurewebsites.net/',
         grant: 'password',
         clientId: 'ro',
         clientSecret: 'secret',
         scope: 'api'
     },
-    apiRootUrl: 'http://10.211.55.4:8000/',
+    apiRootUrl: 'http://boardz-api.azurewebsites.net/',
     offlineConfig: {
         checkInterval: 10000,
         maxDurationForGood: 50,

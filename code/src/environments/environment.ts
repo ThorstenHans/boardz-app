@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
+    production: true,
     authN: {
         url: 'http://10.211.55.2:8001/',
         grant: 'password',
@@ -7,7 +7,7 @@ export const environment = {
         clientSecret: 'secret',
         scope: 'api'
     },
-    apiRootUrl: 'http://10.211.55.4:8000/',
+    apiRootUrl: 'http://10.211.55.2:8002/',
     offlineConfig: {
         checkInterval: 10000,
         maxDurationForGood: 50,

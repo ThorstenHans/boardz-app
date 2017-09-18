@@ -3,7 +3,7 @@ LABEL maintainer="Thorsten Hans <thorsten.hans@thinktecture.com>"
 WORKDIR /app
 RUN mkdir /dist
 COPY ./code/package.json ./code/package-lock.json ./
-RUN npm i
+RUN npm i --silent
 COPY ./code/*.* ./ 
 ADD code/src /app/src
 RUN npm run build
