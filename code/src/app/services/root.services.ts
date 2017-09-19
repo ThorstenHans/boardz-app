@@ -15,8 +15,7 @@ import {TokenService} from './token.service';
 import {AuthenticatedHttp} from './http.service';
 import {DesktopService} from './infrastructure/desktop.service';
 import {OfflineDetectionService} from './offline/offline.detection.service';
-import {OfficeService} from './infrastructure/office.service';
-import {excelServiceFactory} from './office/office.providers';
+import {excelServiceFactory, outlookServiceFactory} from './office/office.providers';
 import {NgZone} from '@angular/core';
 import {BaseExcelService} from './office/base.excel.service';
 import {BaseOutlookService} from './office/base.outlook.service';
@@ -39,7 +38,6 @@ export const ROOT_SERVICES = [
     AgeRatingsService,
     CategoriesService,
     AuthenticatedGuard,
-    OfficeService,
     {provide: BaseExcelService, useFactory: excelServiceFactory, deps: [RuntimeService, NgZone]},
-    {provide: BaseOutlookService, useFactory: excelServiceFactory, deps: [RuntimeService, NgZone]}
+    {provide: BaseOutlookService, useFactory: outlookServiceFactory, deps: [RuntimeService, NgZone]}
 ];

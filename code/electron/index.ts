@@ -14,7 +14,7 @@ app.on('will-quit', () => {
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
-        title: 'BoardZ2',
+        title: 'boardZ',
         width: 1024,
         minWidth: 768,
         height: 700,
@@ -115,6 +115,6 @@ const buildTrayIcon = () => {
     ]);
 
     trayApp = new Tray(trayIconPath);
-    trayApp.setToolTip('BoardZ2');
+    trayApp.setToolTip('boardZ');
     trayApp.setContextMenu(contextMenu);
 };

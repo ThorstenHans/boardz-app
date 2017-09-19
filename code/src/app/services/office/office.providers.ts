@@ -6,9 +6,9 @@ import {OutlookService} from './outlook.service';
 import {NoOutlookService} from './no.outlook.service';
 
 export function excelServiceFactory(runtimeService: RuntimeService, ngZone: NgZone) {
-    return runtimeService.isOfficeApp ? new ExcelService(ngZone) : new NoExcelService();
+    return runtimeService.isExcelApp ? new ExcelService(ngZone) : new NoExcelService();
 }
 
 export function outlookServiceFactory(runtimeService: RuntimeService, ngZone: NgZone) {
-    return runtimeService.isOfficeApp ? new OutlookService(ngZone) : new NoOutlookService();
+    return runtimeService.isOutlookApp ? new OutlookService(ngZone) : new NoOutlookService();
 }

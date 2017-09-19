@@ -1,7 +1,7 @@
 {
     "name": "net.tt.boardz.v2",
     "version": "0.1.0",
-    "displayName": "BoardZ",
+    "displayName": "boardZ",
     "cordova": {
         "platforms": [
             "android",
