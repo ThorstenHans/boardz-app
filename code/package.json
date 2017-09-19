@@ -1,6 +1,7 @@
 {
     "name": "boardz-app",
-    "version": "0.0.0",
+    "version": "2.0.0",
+    "description": "boardZ cross platform spa",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
@@ -10,7 +11,7 @@
         "lint": "ng lint",
         "e2e": "ng e2e"
     },
-    "private": true,
+    "private": false,
     "dependencies": {
         "@angular/animations": "^4.2.4",
         "@angular/common": "^4.2.4",
@@ -47,11 +48,6 @@
         "@types/node": "~6.0.60",
         "@types/office-js": "0.0.48",
         "codelyzer": "~3.1.1",
-        "cordova": "^7.0.1",
-        "cordova-icon": "^0.9.1",
-        "cordova-splash": "^0.9.0",
-        "electron": "1.7.6",
-        "electron-packager": "^9.0.1",
         "jasmine-core": "~2.6.2",
         "jasmine-spec-reporter": "~4.1.0",
         "karma": "~1.7.0",
