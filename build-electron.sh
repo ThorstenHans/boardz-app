@@ -18,7 +18,7 @@ cp -rf dist/ .tmp-electron
 
 echo 'building electron apps...'
 rm -rf out
-./code/node_modules/.bin/electron-packager .tmp-electron --electronVersion 1.7.6 --all --asar --icon ./gfx/icon --out out --overwrite
+./code/node_modules/.bin/electron-packager .tmp-electron --electronVersion 1.7.9 --all --asar --icon ./gfx/icon --out out --overwrite
 
 
 echo 'cleaning up...'

@@ -30,7 +30,15 @@ export class ExcelService extends BaseExcelService {
     }
 
     sendValueToSelection(value: string): Observable<any> {
-        throw new Error('Method not implemented.');
+        return Observable.create((observer)=>{
+           Office.context.document.setSelectedDataAsync(value, {
+               valueFormat: 'unformatted'
+           }, (result: Office.AsyncResult) =>{
+               if(result.status === Office.AsyncResultStatus.Succeeded){
+                   observer.next();
+               }
+           })
+        });
     }
 
     sendTableToSelection(headers: string[], rows: any[][]): Observable<boolean> {
