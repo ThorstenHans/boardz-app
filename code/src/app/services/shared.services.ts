@@ -4,13 +4,10 @@ import {CameraService} from './camera/camera.service';
 import {RuntimeService} from './infrastructure/runtime.service';
 import {GeolocationService} from './geolocation.service';
 
-export function cameraServiceFactory(platformInformationService: RuntimeService): CameraService {
-    return platformInformationService.isMobile ? new MobileCameraService() : new DesktopCameraService();
-}
+// IJS Demo Hook
 
 export const SHARED_SERVICES = [
-    {
-        provide: CameraService, useFactory: cameraServiceFactory, deps: [RuntimeService]
-    },
+    // IJS Demo Hook
+    {provide: CameraService, useClass: DesktopCameraService},
     GeolocationService
 ];

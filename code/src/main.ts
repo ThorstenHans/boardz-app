@@ -12,14 +12,5 @@ const bootstrapNgApp = () => {
     platformBrowserDynamic().bootstrapModule(AppModule);
 };
 
-if (window.hasOwnProperty('cordova')) {
-    window.document.addEventListener('deviceready', bootstrapNgApp, false);
-
-} else if (location.search.indexOf('?_host_Info=') > -1 || !!sessionStorage.getItem('hostInfoValue')) {
-
-    Office.initialize = () => {
-        bootstrapNgApp();
-    }
-} else {
-    bootstrapNgApp();
-}
+// IJS DEMO HOOK
+bootstrapNgApp();

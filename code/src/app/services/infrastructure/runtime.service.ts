@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 declare let window;
 
@@ -28,6 +28,8 @@ export class RuntimeService {
     public get isOfficeApp(): boolean {
         return window.hasOwnProperty('Office');
     }
+
+    // IJS Electron demo hook
 
     public get isExcelApp(): boolean {
         return this.isOfficeApp && Office.context.host == Office.HostType.Excel;
