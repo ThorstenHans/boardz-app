@@ -9,6 +9,7 @@
             "outDir": "../dist",
             "assets": [
                 "assets",
+                "cordova.js",
                 "functions.html",
                 "favicon.ico",
                 {

@@ -14,6 +14,7 @@ mkdir -p .tmp-cdv/www
 
 echo 'applying compiled angular app and cordova assets...'
 cp -rf dist/ .tmp-cdv/www
+rm .tmp-cdv/www/cordova.js
 cp ./code-cordova/config.xml ./code-cordova/package.json .tmp-cdv
 cp -rf ./code-cordova/hooks ./.tmp-cdv
 cd .tmp-cdv
