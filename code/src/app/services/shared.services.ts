@@ -4,8 +4,8 @@ import { CameraService } from './camera/camera.service';
 import { RuntimeService } from './infrastructure/runtime.service';
 import { GeolocationService } from './geolocation.service';
 
-export function cameraServiceFactory(platformInformationService: RuntimeService): CameraService {
-    return platformInformationService.isMobile ? new MobileCameraService() : new DesktopCameraService();
+export function cameraServiceFactory(runtimeService: RuntimeService): CameraService {
+    return runtimeService.isMobile ? new MobileCameraService() : new DesktopCameraService();
 }
 
 export const SHARED_SERVICES = [
