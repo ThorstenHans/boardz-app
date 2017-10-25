@@ -34,6 +34,10 @@ export class OfflineDetectionService {
      * start connection monitoring
      */
     public startConnectionMonitoring(): void {
+        if(!environment.offlineConfig.enabled){
+            this.connectionChanged.next(ConnectionState.Good);
+            return;
+        }
         this._monitoringHandle = window.setInterval(() => {
             this._checkConnection().subscribe(state => {
                 // emit the state only! if the state was offline and will be treated as online

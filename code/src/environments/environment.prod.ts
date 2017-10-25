@@ -9,10 +9,11 @@ export const environment = {
     },
     apiRootUrl: 'https://boardz-api.azurewebsites.net/',
     offlineConfig: {
-        checkInterval: 2000,
+        enabled: true,
+        checkInterval: 5000,
         maxDurationForGood: 240,
-        maxDurationForNormal: 320,
-        maxDurationForToSlow: 450,
-        absoluteTimeoutAt: 600
+        maxDurationForNormal: 500,
+        maxDurationForToSlow: 800,
+        absoluteTimeoutAt: 1200
     }
 };
