@@ -27,7 +27,7 @@ export class RuntimeService {
         return window.hasOwnProperty('Office');
     }
 
-    // IJS Electron demo hook
+    // ijs demo hook: electron 1
 
     public get isExcelApp(): boolean {
         return this.isOfficeApp && Office.context.host === Office.HostType.Excel;
