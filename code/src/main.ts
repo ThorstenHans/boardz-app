@@ -19,7 +19,7 @@ if (window.hasOwnProperty('cordova')) {
 
     Office.initialize = () => {
         bootstrapNgApp();
-    }
+    };
 } else {
     bootstrapNgApp();
 }
