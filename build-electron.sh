@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script can be used to issue a full rebuild of the electron app
+# for development time build, you won't delete everything.
 echo 'installing electron-packager...'
 cd code
 npm install electron-packager --no-save

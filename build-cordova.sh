@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script can be used to issue a full rebuild of the cordova app
+# for development time build, you won't delete everything.
+# you want to keep changes from iOS proj...
+
 echo 'installing cordova tooling...'
 cd code
 npm install cordova cordova-icon cordova-splash --no-save
