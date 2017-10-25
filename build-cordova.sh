@@ -2,7 +2,7 @@
 
 echo 'installing cordova tooling...'
 cd code
-npm install cordova cordova-icon cordova-splash
+npm install cordova cordova-icon cordova-splash --no-save
 
 echo 'building the angular app for production...'
 npm run build --prod --base-ref="."
@@ -14,8 +14,8 @@ mkdir -p .tmp-cdv/www
 
 echo 'applying compiled angular app and cordova assets...'
 cp -rf dist/ .tmp-cdv/www
-cp ./code/src-cordova/config.xml ./code/src-cordova/package.json .tmp-cdv
-cp -rf ./code/src-cordova/hooks ./.tmp-cdv
+cp ./code-cordova/config.xml ./code-cordova/package.json .tmp-cdv
+cp -rf ./code-cordova/hooks ./.tmp-cdv
 cd .tmp-cdv
 
 echo 'restoring cordova dependencies for app...'
