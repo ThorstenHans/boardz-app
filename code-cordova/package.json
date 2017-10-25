@@ -1,5 +1,5 @@
 {
-    "name": "net.tt.boardz.v2",
+    "name": "com.thinktecture.apps.boardz",
     "version": "0.1.0",
     "displayName": "boardZ",
     "cordova": {
