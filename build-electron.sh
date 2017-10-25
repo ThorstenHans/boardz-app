@@ -8,9 +8,6 @@ echo 'building the angular app for production...'
 npm run build --prod --base-ref="."
 cd ..
 
-echo 'compiling electron instruction file...'
-./code/node_modules/.bin/tsc ./code-electron/index.ts
-
 echo 'generating temporary build dir...'
 rm -rf .tmp-electron
 mkdir .tmp-electron

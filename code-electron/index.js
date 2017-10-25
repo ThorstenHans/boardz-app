@@ -1,17 +1,19 @@
-"use strict";
-exports.__esModule = true;
-var electron_1 = require("electron");
-var path = require("path");
-var mainWindow = null;
-var trayApp = null;
-electron_1.app.on('window-all-closed', function () {
-    electron_1.app.quit();
+const { app, BrowserWindow, globalShortcut, Menu, MenuItem, shell, Tray } = require('electron');
+const path = require('path');
+const url = require('url');
+
+let mainWindow;
+let trayApp;
+app.on('window-all-closed', () => {
+    app.quit();
 });
-electron_1.app.on('will-quit', function () {
-    electron_1.globalShortcut.unregisterAll();
+
+app.on('will-quit', () => {
+    globalShortcut.unregisterAll();
 });
-electron_1.app.on('ready', function () {
-    mainWindow = new electron_1.BrowserWindow({
+
+app.on('ready', () => {
+    mainWindow = new BrowserWindow({
         title: 'boardZ',
         width: 1024,
         minWidth: 768,
@@ -22,75 +24,82 @@ electron_1.app.on('ready', function () {
             nodeIntegration: true
         }
     });
+
     buildTrayIcon();
-    electron_1.globalShortcut.register('CmdOrCtrl+Shift+d', function () {
+
+    globalShortcut.register('CmdOrCtrl+Shift+d', function () {
         mainWindow.webContents.toggleDevTools();
     });
+
     mainWindow.loadURL('file://' + __dirname + '/index.html');
-    mainWindow.setTitle(electron_1.app.getName());
-    mainWindow.on('closed', function () {
+    mainWindow.setTitle(app.getName());
+
+    mainWindow.on('closed', () => {
         mainWindow = null;
     });
+
     if (process.platform === 'darwin') {
         buildNativeAppMenu();
     }
 });
-var buildNativeAppMenu = function () {
-    var template = [{
-            label: 'Application',
-            submenu: [
-                {
-                    label: 'About Application', role: 'orderFrontStandardAboutPanel:'
-                },
-                {
-                    label: 'Browse Repository', accelerator: 'CmdOrCtrl+G',
-                    click: function () {
-                        electron_1.shell.openExternal('https://github.com/thinktecture/boardz-cross-platform-sample/');
-                    }
-                },
-                {
-                    label: 'Reload', accelerator: 'CmdOrCtrl+R',
-                    click: function () {
-                        mainWindow.loadURL('file://' + __dirname + '/index.html');
-                    }
-                },
-                {
-                    label: 'Quit', accelerator: 'Command+Q',
-                    click: function () {
-                        electron_1.app.quit();
-                    }
+
+const buildNativeAppMenu = () => {
+    const template = [{
+        label: 'Application',
+        submenu: [
+            {
+                label: 'About Application', role: 'orderFrontStandardAboutPanel:'
+            },
+            {
+                label: 'Browse Repository', accelerator: 'CmdOrCtrl+G',
+                click: () => {
+                    shell.openExternal('https://github.com/ThorstenHans/boardz');
                 }
-            ]
-        },
-        {
-            label: 'Edit',
-            submenu: [
-                {
-                    label: 'Undo', accelerator: 'CmdOrCtrl+Z', role: 'undo'
-                },
-                {
-                    label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', role: 'redo'
-                },
-                {
-                    label: 'Cut', accelerator: 'CmdOrCtrl+X', role: 'cut'
-                },
-                {
-                    label: 'Copy', accelerator: 'CmdOrCtrl+C', role: 'copy'
-                },
-                {
-                    label: 'Paste', accelerator: 'CmdOrCtrl+V', role: 'paste'
-                },
-                {
-                    label: 'Select All', accelerator: 'CmdOrCtrl+A', role: 'selectall'
+            },
+            {
+                label: 'Reload', accelerator: 'CmdOrCtrl+R',
+                click: () => {
+                    mainWindow.loadURL('file://' + __dirname + '/index.html');
                 }
-            ]
-        }
+            },
+            {
+                label: 'Quit', accelerator: 'Command+Q',
+                click: () => {
+                    app.quit();
+                }
+            }
+        ]
+    }
+        , {
+        label: 'Edit',
+        submenu: [
+            {
+                label: 'Undo', accelerator: 'CmdOrCtrl+Z', role: 'undo'
+            },
+            {
+                label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', role: 'redo'
+            },
+            {
+                label: 'Cut', accelerator: 'CmdOrCtrl+X', role: 'cut'
+            },
+            {
+                label: 'Copy', accelerator: 'CmdOrCtrl+C', role: 'copy'
+            },
+            {
+                label: 'Paste', accelerator: 'CmdOrCtrl+V', role: 'paste'
+            },
+            {
+                label: 'Select All', accelerator: 'CmdOrCtrl+A', role: 'selectall'
+            }
+        ]
+    }
     ];
-    electron_1.Menu.setApplicationMenu(electron_1.Menu.buildFromTemplate(template));
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 };
-var buildTrayIcon = function () {
-    var trayIconPath = path.join(__dirname, 'icon.png');
-    var contextMenu = electron_1.Menu.buildFromTemplate([
+const buildTrayIcon = () => {
+    const trayIconPath = path.join(__dirname, 'icon.png');
+    const contextMenu = Menu.buildFromTemplate([
         {
             label: 'Radius Search...',
             type: 'normal',
@@ -104,7 +113,8 @@ var buildTrayIcon = function () {
             role: 'quit'
         }
     ]);
-    trayApp = new electron_1.Tray(trayIconPath);
+
+    trayApp = new Tray(trayIconPath);
     trayApp.setToolTip('boardZ');
     trayApp.setContextMenu(contextMenu);
 };
