@@ -1,4 +1,4 @@
-#boardZ - Single Page Application (SPA)
+# boardZ - Single Page Application (SPA)
 
 The SPA is part of a complete sample application. If you're interested in running and using the application on your own hardware, consider exploring the parent repository.
 
