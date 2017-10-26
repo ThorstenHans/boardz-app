@@ -1,46 +1,25 @@
-# boardZ Single Page Application
+#boardZ - Single Page Application (SPA)
 
-## Requirements 
+The SPA is part of a complete sample application. If you're interested in running and using the application on your own hardware, consider exploring the parent repository.
 
-* Download and install [node.js](https://nodejs.org/)
-* Make sure you have the [git command line tools](https://git-scm.com/downloads) installed
-* Download and install [Atom](https://atom.io/) or another editor of your choice (free: `notepad`, [Visual Studio Code](https://code.visualstudio.com/); commercial: [Sublime Text](https://www.sublimetext.com/), [WebStorm](https://www.jetbrains.com/webstorm/))
+[https://github.com/ThorstenHans/boardz](https://github.com/ThorstenHans/boardz)
 
-## Requirements for Cordova
+## About boardZ
 
-* Download and install the platform SDKs and/or emulators for the platform you want to develop for (this might take quite a while… so do this first!)
-  * [XCode](https://developer.apple.com/xcode/download/)
-  * [Android SDK](https://developer.android.com/sdk/index.html)
-  * [Windows 10 SDK](https://dev.windows.com/en-us/downloads/windows-10-sdk)
-* Install and install [ImageMagick](http://www.imagemagick.org/script/binary-releases.php) (base toolkit for image processing, here used for splash screen and icon generation)
+*boardZ* is a small application used to manage classical board games. The SPA has been built using [Angular](https://angular.io).
 
+## Cross platform mobile apps
 
-## Android Settings
+Mobile apps can be built using [Apache Cordova](http://cordova.apache.org). Consider executing the build script `./build-cordova.sh` to generate mobile apps. 
 
-### SDK version
+> The build script is actually doing a full re-build. For development or production builds consider implementing incremental builds. This has been build for demonstration purpose.  
 
-If you want to change [Android's SDK version](http://developer.android.com/guide/topics/manifest/uses-sdk-element.html), open [cordova/config.xml](cordova/config.xml) and search for `android-minSdkVersion` or `android-targetSdkVersion`:
+## Cross platform desktop apps
 
-* `android-minSdkVersion`: An integer designating the minimum API Level required for the application to run.
-* `android-targetSdkVersion`: An integer designating the API Level that the application targets. If not set, the default value equals that given to minSdkVersion.
+Mobile apps can be built using [GitHub Electron](http://electron.atom.io). Consider executing the build script `./build-electron.sh` to generate desktop apps for all platforms. 
 
-## Third-Party Libraries
-### JavaScript, CSS
-* [Angular2](https://angular.io/), JavaScript framework — HTML enhanced for web apps!
-* [Bootstrap](http://getbootstrap.com/), responsive layout framework
-* [AdminLTE](https://almsaeedstudio.com/preview), free responsive dashboard template
-  * [Font Awesome](https://fortawesome.github.io/Font-Awesome/), free icon font
-  * [jQuery](https://jquery.com/), JavaScript library required for AdminLTE
-  * [winstore-jscompat](https://github.com/MSOpenTech/winstore-jscompat), fixes jQuery issues with Windows (Phone) 8 and 8.1 platforms
-* [FastClick](https://github.com/ftlabs/fastclick), eliminates the [infamous 300 ms lag on touch devices](http://developer.telerik.com/featured/300-ms-click-delay-ios-8/)
-* [HammerJS](http://hammerjs.github.io/), for touch interactions
-* [FontAwesome](http://fontawesome.io) Images powered by font awesome
-* [Leaflet](http://leafletjs.com/), an open-source JavaScript library for mobile-friendly interactive maps
-* [pNotify](http://sciactive.com/pnotify/) UI notification library
+> The build script is actually doing a full re-build. For development or production builds consider implementing incremental builds. This has been build for demonstration purpose.
 
-### Native Wrappers
-* [Cordova](https://cordova.apache.org/) for mobile apps
-  * [Camera Plugin](https://github.com/apache/cordova-plugin-camera), allows native camera access
-  * [Geolocation Plugin](https://github.com/apache/cordova-plugin-geolocation), allows access to geolocation
-  * [Statusbar Plugin](https://github.com/apache/cordova-plugin-statusbar), allows modifying the statusbar
-* [Electron](http://electron.atom.io/) for desktop applications
+## Web App
+
+The project itself has been built using `@angular/cli`, that said, you can run the application either by executing `npm start` or `ng serve` (if you've installed `@angular/cli` globally).
