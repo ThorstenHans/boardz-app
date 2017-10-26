@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
-import {ConnectionState} from '../../models/connectionState';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { ConnectionState } from '../../models/connectionState';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/timeout';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {Subject} from 'rxjs/Rx';
-import {environment} from '../../../environments/environment';
+import { Subject } from 'rxjs/Rx';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class OfflineDetectionService {
@@ -34,7 +34,7 @@ export class OfflineDetectionService {
      * start connection monitoring
      */
     public startConnectionMonitoring(): void {
-        if(!environment.offlineConfig.enabled){
+        if (!environment.offlineConfig.enabled) {
             this.connectionChanged.next(ConnectionState.Good);
             return;
         }
@@ -90,7 +90,7 @@ export class OfflineDetectionService {
         const start = (new Date()).getTime();
         return this._http.get(this._pingUrl)
             .map(response => response.json())
-            .timeoutWith(environment.offlineConfig.absoluteTimeoutAt, Observable.of({success: false}))
+            .timeoutWith(environment.offlineConfig.absoluteTimeoutAt, Observable.of({ success: false }))
             .map(response => !response.success ? environment.offlineConfig.absoluteTimeoutAt + 1 : (new Date()).getTime() - start)
             .map(duration => this._getConnectionStateByDuration(duration))
             .catch((err) => {
